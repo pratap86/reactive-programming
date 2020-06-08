@@ -2,7 +2,12 @@ package com.pratap.reactive.observer;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * <p>Observable that observed by Observers, 
+ * One to Many relationship between Observable & Observers</p>
+ * @author Pratap Narayan
+ *
+ */
 public class Book implements SubjectLibrary {
 
 	private String name;
@@ -57,6 +62,10 @@ public class Book implements SubjectLibrary {
 		return inStock;
 	}
 
+	/**
+	 * on change the state, it triggers the notifyObserver()
+	 * @param inStock
+	 */
 	public void setInStock(String inStock) {
 		this.inStock = inStock;
 		System.out.println("Availability changed from Sold out to Back in stock.\n");
@@ -71,6 +80,9 @@ public class Book implements SubjectLibrary {
 		this.obsList = obsList;
 	}
 
+	/**
+	 * its notified all the subscribers about an update
+	 */
 	@Override
 	public void notifyObserver() {
 		System.out.println(
